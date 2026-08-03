@@ -71,6 +71,58 @@ html {
     min-width: 400px;
 }
 
+h1 {
+    color: var(--blue);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+body {
+    font-family: var(--font);
+    background-color: var(--white);
+    color: var(--black);
+}
+
+header {
+    background-color: var(--black);
+    padding: 2rem 0;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 8px 15px var(--blue);
+}
+
+h1 {
+    color: var(--blue);
+    position: relative;
+    font-size: 2rem;
+    font-weight: 700;
+    padding-left: 4rem;
+}
+
+h1::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 3.75rem;
+    height: 3.75rem;
+    background: url('images/vanguard-logo.svg') no-repeat center/contain;
+}
+
+nav h2 {
+    display: none;
+}
+
+nav ul {
+    display: none;
+}
+
+nav::after {
+    content:"☰";
+    font-size: 2rem;
+    color: var(--white);
+}
 /* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
 .container {
     width: 90%;
@@ -87,6 +139,44 @@ html {
     text-align: center;
     padding: 1rem;
     overflow: hidden;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#hero .container {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 1rem 1rem;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+#hero h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+#hero p {
+    font-size: 1.25rem;
+    color: var(--white);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 2rem 2rem;
+    background-color: var(--blue);
+    color: var(--white);
+    font-weight: 700;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    text-decoration: none;
 }
 
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
@@ -163,8 +253,7 @@ h1::before {
         width: 50%;
     }
 
+}
+
 
 /* MEDIA QUERIES (LARGE) */
-@media (min-width:1024px) {
-    
-}
