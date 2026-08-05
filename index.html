@@ -19,6 +19,8 @@
         <div class="container">
             <h1><span>Vanguard</span></h1>
             <nav>
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="hamburger">☰</label>
                 <h2>Main Navigation</h2>
                 <ul>
                     <li><a href="#">About</a></li>
@@ -151,20 +153,31 @@
                 <p>Want to take your business to the next level? Get in touch with our elite team today.</p>
 
                 <form>
-                    <label for="full-name">Full Name</label>
-                    <input type="text" id="full-name" name="full-name" required>
 
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
+                    <div>
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="full-name" required>
+                    </div>
 
-                    <label for="company">Company Name</label>
-                    <input type="text" id="company" name="company" required>
+                    <div>
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
 
-                    <label for="industry">Industry</label>
-                    <input type="text" id="industry" name="industry" required>
+                    <div>
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
 
-                    <label for="message">How can we help you?</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <div>
+                        <label for="industry">Industry</label>
+                        <input type="text" id="industry" name="industry" required>
+                    </div>
+
+                    <div>
+                        <label for="message">How can we help you?</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
 
                     <button type="submit">Submit</button>
                 </form>

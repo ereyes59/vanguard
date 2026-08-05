@@ -81,8 +81,9 @@ header {
     background-color: var(--black);
     padding: 2rem 0;
     position: relative;
-    z-index: 1;
     box-shadow: 0 8px 15px var(--blue);
+    overflow: visible;
+    z-index: 100;
 }
 
 h1 {
@@ -104,18 +105,65 @@ h1::before {
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
 }
 
+nav {
+    position: relative;
+    text-align: center;
+}
+
+nav a {
+    display: block;
+    padding: 1rem;
+    font-size: 1.75rem;
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 700;
+    transition: all .3s ease;
+}
+
+nav a:hover {
+    color: var(--black);
+    background-color: var(--blue);
+}
+
 nav h2 {
     display: none;
 }
 
 nav ul {
     display: none;
+    width: 250px;
+    background-color: var(--black);
+    padding:1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    margin-left:auto ;
 }
 
-nav::after {
-    content:"☰";
-    font-size: 2rem;
+.hamburger {
     color: var(--white);
+    font-size: 2rem;
+    cursor: pointer;
+    display: block;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+#menu-toggle:checked ~ ul {
+    display: block;
+    animation:menuPop .3s ease;
+}
+
+@keyframes menuPop {
+    from {
+        opacity: 0;
+        transform: scale(.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 /* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
 .container {
@@ -132,7 +180,7 @@ nav::after {
     place-items: center;
     text-align: center;
     padding: 1rem;
-    overflow: hidden;
+    overflow: visible;
 }
 
 header .container {
@@ -171,17 +219,49 @@ header .container {
     border-radius: 10px;
     font-size: 1.5rem;
     text-decoration: none;
+    transition: all .3s ease;
+}
+
+.btn:hover {
+    background-color: var(--red);
+    transform: scale(1.05);
 }
 
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
 h1::before {
     content: "";
-
     left:-.5rem;
     width: 3.75rem;
     height: 3.75rem;
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
+    animation: floatLogo 3s ease-in-out infinite;
+}
 
+@keyframes floatLogo {
+    0%, 100% {
+        transform: translateY(-50%);
+    }
+
+    50% {
+        transform: translateY(-65%);
+    }
+}
+
+h1, h2, h3 {
+    animation: fadeDown 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h2 {
@@ -211,9 +291,15 @@ h3 {
 
 article {
     background-color: var(--blue);
-    padding: 1rem;
-    margin-bottom: 1rem;
+    padding: .75rem;
     border-radius: 10px;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    transition: all .3s ease;
+}
+
+article:hover {
+    transform: scale(1.05);
 }
 
 #services .container p {
@@ -361,6 +447,12 @@ button[type="submit"] {
     cursor: pointer;
     width: 100%;
     margin-top: 1rem;
+    transition: all .3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--red);
+    transform: scale(1.05);
 }
 footer {
     background-color: var(--black);
@@ -385,12 +477,24 @@ footer a#phone {
 
     header {
         padding: 3rem 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    header .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     h1 span {
         position: absolute;
-        left: -50;
         transform: translateY(-100%);
+    }
+
+    nav {
+        margin-top: -4rem;
+        margin-right: 7rem;
     }
 
     nav a {
@@ -399,15 +503,30 @@ footer a#phone {
         font-size: 1.5rem;
         text-transform: uppercase;
         font-weight: 700;
+        padding: .5rem;
     }
 
     nav ul {
         display: flex;
-        gap: 2.5rem;
-        transform: translateY(-50%);
+        gap: 1.5rem;
+        align-items: center;
     }
     
     nav::after {
+        display: none;
+    }
+
+nav a:hover {
+    color: var(--black);
+    background-color: var(--blue);
+    padding: 1.25rem;
+}
+
+    .hamburger {
+        display: none;
+    }
+
+    #menu-toggle {
         display: none;
     }
 
@@ -416,11 +535,16 @@ footer a#phone {
     }
 
 
+    article {
+        min-height: 180px;
+    }
+
     .articles {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr);
         gap: 2rem;
+        align-items: start;
     }
 
     .articles h3 {
@@ -435,7 +559,7 @@ footer a#phone {
     #results {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 2rem;
+        column-gap: 2rem;
     }
 
     #results h2, #results p {
@@ -459,7 +583,7 @@ footer a#phone {
         height: auto;
     }
     #results .bar-chart {
-        width: 100%;
+        width: 90%;
         height: 70%;
     }
 
@@ -479,3 +603,59 @@ footer a#phone {
 
 
 /* MEDIA QUERIES (LARGE) */
+
+@media (min-width:1024px) {
+
+    #hero {
+        height: 700px;
+        padding: 1rem;
+    }
+
+    #hero .container {
+        width: 80%;
+        padding: 1rem;
+        transform: scale(.8);
+    }
+    
+    #hero p {
+        max-width: none;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto 2rem;
+    }
+
+    #hero p::after {
+        content: "";
+        display: inline-block;
+    }
+
+    .articles {
+        grid-template-columns:  repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    #results {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    form div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    textarea {
+        height: 100%;
+    }
+
+    button[type="submit"] {
+        align-self: start;
+        height: fit-content;
+    }
+}
