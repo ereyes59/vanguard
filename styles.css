@@ -86,6 +86,8 @@ header {
     z-index: 100;
 }
 
+/* SITE TITLE/LOGO */
+
 h1 {
     color: var(--blue);
     position: relative;
@@ -104,6 +106,8 @@ h1::before {
     height: 3.75rem;
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
 }
+
+/* NAVIGATION */
 
 nav {
     position: relative;
@@ -171,7 +175,7 @@ nav ul {
     max-width: 1200px;
     margin: 0 auto;
 }
-
+/* HERO SECTION */
 /* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
 #hero {
     background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
@@ -226,7 +230,7 @@ header .container {
     background-color: var(--red);
     transform: scale(1.05);
 }
-
+/* ANIMATIONS */
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
 h1::before {
     content: "";
@@ -263,7 +267,7 @@ h1, h2, h3 {
         transform: translateY(0);
     }
 }
-
+/* ABOUT SECTION */
 h2 {
     font-size: 1.75rem;
     font-weight: 800;
@@ -282,6 +286,7 @@ h2 {
     line-height: 1.5;
 }
 
+/* SERVICES SECTION */
 h3 {
     font-size: 1.25rem;
     font-weight: 700;
@@ -312,6 +317,8 @@ article:hover {
     padding-bottom: 4rem;
 }
 
+/* RESULTS SECTION */
+
 #results {
     background-color: var(--blue);
     padding: 1.5rem;
@@ -334,6 +341,7 @@ article:hover {
     padding: 1.5rem 0 1.5rem 1rem;
 }
 
+/* TABLE STYLES */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -351,6 +359,8 @@ th, td {
 tr:nth-child(even) {
     background-color: var(--charcoal);
 }
+
+/* BAR CHART */
 /* THIS ONE IS DONE FOR YOU */
 #bar-chart {
     display: grid;
@@ -397,6 +407,7 @@ tr:nth-child(even) {
     animation: stepUp 1s ease-in-out forwards;
 }
 
+/* CONTACT SECTION */
 #contact {
     background-color: var(--black);
     padding: 1rem;
@@ -416,6 +427,7 @@ tr:nth-child(even) {
     padding-bottom: 1.5rem;
 }
 
+/* CONTACT FORM SECTION */
 form {
     padding-bottom: 3rem;
 }
@@ -454,6 +466,8 @@ button[type="submit"]:hover {
     background-color: var(--red);
     transform: scale(1.05);
 }
+
+/* FOOTER SECTION */
 footer {
     background-color: var(--black);
     color: var(--white);
@@ -475,6 +489,7 @@ footer a#phone {
 /* MEDIA QUERIES (MEDIUM) */ 
 @media (min-width: 800px) {
 
+    /* HEADER */
     header {
         padding: 3rem 0;
         position: relative;
@@ -492,6 +507,7 @@ footer a#phone {
         transform: translateY(-100%);
     }
 
+    /* NAVIGATION */
     nav {
         margin-top: -4rem;
         margin-right: 7rem;
@@ -516,11 +532,11 @@ footer a#phone {
         display: none;
     }
 
-nav a:hover {
+    nav a:hover {
     color: var(--black);
     background-color: var(--blue);
     padding: 1.25rem;
-}
+    }
 
     .hamburger {
         display: none;
@@ -530,11 +546,12 @@ nav a:hover {
         display: none;
     }
 
+    /* HERO SECTION */
     .btn {
         padding: 1.5rem 2rem;
     }
 
-
+    /* SERVICES SECTION */
     article {
         min-height: 180px;
     }
@@ -556,6 +573,7 @@ nav a:hover {
         align-items: center;
     }
 
+    /* RESULTS SECTION*/
     #results {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -606,6 +624,7 @@ nav a:hover {
 
 @media (min-width:1024px) {
 
+    /* HERO SECTION */
     #hero {
         height: 700px;
         padding: 1rem;
@@ -629,16 +648,19 @@ nav a:hover {
         display: inline-block;
     }
 
+    /* SERVICES SECTION */
     .articles {
         grid-template-columns:  repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
     }
 
+    /* RESULTS SECTION */
     #results {
         padding-left: 10%;
         padding-right: 10%;
     }
 
+    /* CONTACT FORM */
     form {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
